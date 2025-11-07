@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, type CSSProperties } from 'react'
 
 import domToImage from 'dom-to-image'
-import { Image, ArrowDownToLine, Brush } from 'lucide-react'
+import { Image, ArrowDownToLine, Brush, ChevronDown } from 'lucide-react'
 
 import { codeToHtml } from 'shiki'
 import { useLocalStorage } from 'react-use'
@@ -266,13 +266,13 @@ export default function ShikiEditor() {
 				</label>
 
 				<label className="flex flex-col">
-					<span className="text-xs text-neutral-400 font-light">
+					<span className="text-xs text-neutral-400 font-light appearance-none">
 						Language
 					</span>
 					<select
 						name="theme"
 						value={language ?? 'tsx'}
-						className="outline-none"
+						className="outline-none appearance-none"
 						onChange={(e) => setLanguage(e.target.value)}
 					>
 						{languages.map((language) => (
@@ -290,7 +290,7 @@ export default function ShikiEditor() {
 					<select
 						name="theme"
 						value={theme ?? 'catppuccin-latte'}
-						className="outline-none"
+						className="outline-none appearance-none"
 						onChange={(e) => setTheme(e.target.value)}
 					>
 						{themes.map((theme) => (
@@ -322,7 +322,6 @@ export default function ShikiEditor() {
 							<span>
 								{' '}
 								(Safari doesn't support local font){' '}
-								<button>[Dismiss]</button>
 								<button
 									onClick={() => setShowNotice(false)}
 									className="text-neutral-700 dark:text-neutral-300 font-medium cursor-pointer"
